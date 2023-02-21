@@ -22,8 +22,8 @@ namespace Dungeon
 
             #region Main Game Loop
             bool exit = false;
-            int innerCount = 0;
-            int outerCount = 0;
+            //int innerCount = 0;
+            //int outerCount = 0;
             do
             {
                 //TODO Generate a random room
@@ -34,8 +34,8 @@ namespace Dungeon
                 bool reload = false;            
                 do
                 {
-                    Console.WriteLine("Outer: " + ++outerCount);
-                    Console.WriteLine("Inner: " + ++innerCount);
+                    //Console.WriteLine("Outer: " + ++outerCount);
+                    //Console.WriteLine("Inner: " + ++innerCount);
                     //TODO Gameplay menu
                     #region Menu
                     Console.Write("\nPlease choose an action:\n" +
