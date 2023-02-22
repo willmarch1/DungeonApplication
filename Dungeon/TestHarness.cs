@@ -26,6 +26,8 @@ namespace Dungeon
             w1.BonusHitChance= 1;
             w1.Name = "Spiked Club";
 
+            Console.WriteLine(w1); // can jusr do this instead of the CW below
+
             Console.WriteLine($"{w1.Name}\n" + 
                               $"Minimum damage: {w1.MinDamage}. Maximum Damage: {w1.MaxDamage}.\n" +
                               $"Bonus Hit Chance: {w1.BonusHitChance}.\n" +
@@ -46,9 +48,9 @@ namespace Dungeon
                               $"Hit Chance: {c1.HitChance}\n" +
                               $"Block: {c1.Block}\n");
 
-            Console.WriteLine($"{c1.Name} has a block of {c1.CalculateBlock}\n");
-            Console.WriteLine($"{c1.Name} Hit Chance: {c1.CalculateHitChance}\n");
-            Console.WriteLine($"{c1.Name} Damage: {c1.CalculateDamage}\n");
+            Console.WriteLine($"{c1.Name} has a block of {c1.CalculateBlock()}\n");
+            Console.WriteLine($"{c1.Name} Hit Chance: {c1.CalculateHitChance()}\n");
+            Console.WriteLine($"{c1.Name} Damage: {c1.CalculateDamage()}\n");
 
 
 
