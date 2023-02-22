@@ -22,6 +22,7 @@ namespace DungeonLibrary
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private WeaponType _type;
 
 
 
@@ -51,21 +52,31 @@ namespace DungeonLibrary
             get { return _maxDamage; }
             set { _maxDamage = value; }
         }
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+       
 
 
 
         //Constructors (CTORS)
         // 1 fully qualified and one default/unqualified
-        public Weapon(string name, int bonusHitChance, bool isTwoHanded, int minDamage, int maxDamage)
+        public Weapon(string name, int bonusHitChance, bool isTwoHanded, int minDamage, int maxDamage, WeaponType type)
         {
             Name = name;
-            BonusHitChance= bonusHitChance;
+            BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
             MinDamage = minDamage;
             MaxDamage = maxDamage;
+            Type = type;
         }
         public Weapon() { }
 
+        
+        
+       
 
 
         //Methods
@@ -76,7 +87,9 @@ namespace DungeonLibrary
                    $"Bonus Hit Chance: {BonusHitChance}\n" +
                    $"Is Two Handed: {IsTwoHanded}\n" +
                    $"Min Dmg: {MinDamage}\n" +
-                   $"Max Dmg: {MaxDamage}\n";
+                   $"Max Dmg: {MaxDamage}\n" +
+                   $"Weapon Type {Type}\n";
+                 
         }
     }
 }
