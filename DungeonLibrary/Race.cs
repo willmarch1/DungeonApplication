@@ -8,5 +8,6 @@ namespace DungeonLibrary
         Alien,
         Goblin,
         Animal
+
     }
 }
