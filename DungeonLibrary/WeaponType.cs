@@ -1,7 +1,7 @@
 ﻿
 namespace DungeonLibrary
 {
-    internal enum WeaponType
+    public enum WeaponType
     {
         Spiked_Club,
         Dagger,

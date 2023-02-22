@@ -89,7 +89,7 @@ namespace DungeonLibrary
                    $"Min Dmg: {MinDamage}\n" +
                    $"Max Dmg: {MaxDamage}\n" +
                    $"Weapon Type {Type}\n";
-                  
+                 
         }
     }
 }
