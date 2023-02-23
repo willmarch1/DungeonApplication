@@ -1,7 +1,7 @@
 ﻿
 namespace DungeonLibrary
 {
-    internal enum Race
+    public enum Race
     {
         Human,
         Robot,

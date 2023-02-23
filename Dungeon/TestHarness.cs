@@ -20,37 +20,41 @@ namespace Dungeon
             Console.WriteLine("Weapons\n");
             Weapon w1 = new Weapon();
 
-            w1.MinDamage= 1;
             w1.MaxDamage= 6;
+            w1.MinDamage= 1;
             w1.IsTwoHanded = false;
             w1.BonusHitChance= 1;
             w1.Name = "Spiked Club";
 
-            Console.WriteLine(w1); // can jusr do this instead of the CW below
+            Console.WriteLine(w1); // can just do this instead of the CW below
 
             Console.WriteLine($"{w1.Name}\n" + 
                               $"Minimum damage: {w1.MinDamage}. Maximum Damage: {w1.MaxDamage}.\n" +
                               $"Bonus Hit Chance: {w1.BonusHitChance}.\n" +
                               $"2-handed weapon: {w1.IsTwoHanded}");
+            
             Console.WriteLine("\n\n");
+
+
             Console.WriteLine("Characters\n");
-            Character c1= new Character();
+            Player p1= new Player();
 
-            c1.Name = "Charlie the Cat";
-            c1.Life = 25;
-            c1.MaxLife = 25;
-            c1.HitChance = 3;
-            c1.Block = 5;
+            p1.Name = "Charlie the Cat";
+            p1.MaxLife = 25;
+            p1.Life = 25;
+            p1.HitChance = 3;
+            p1.Block = 5;
+            p1.PlayerRace = Race.Animal;
+            p1.EquippedWeapon = w1;
 
-            Console.WriteLine($"{c1.Name}\n" +
-                              $"Life: {c1.Life}\n" +
-                              $"Max Life: {c1.MaxLife}\n" +
-                              $"Hit Chance: {c1.HitChance}\n" +
-                              $"Block: {c1.Block}\n");
+            Console.WriteLine($"{p1.Name}\n" +
+                              $"Max Life: {p1.MaxLife}\n" +
+                              $"Hit Chance: {p1.HitChance}\n" +
+                              $"Block: {p1.Block}\n");
 
-            Console.WriteLine($"{c1.Name} has a block of {c1.CalculateBlock()}\n");
-            Console.WriteLine($"{c1.Name} Hit Chance: {c1.CalculateHitChance()}\n");
-            Console.WriteLine($"{c1.Name} Damage: {c1.CalculateDamage()}\n");
+            Console.WriteLine($"{p1.Name} has a block of {p1.CalculateBlock()}\n");
+            Console.WriteLine($"{p1.Name} Hit Chance: {p1.CalculateHitChance()}\n");
+            Console.WriteLine($"{p1.Name} Damage: {p1.CalculateDamage()}\n");
 
 
 
