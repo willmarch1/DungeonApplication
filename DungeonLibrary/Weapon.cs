@@ -24,6 +24,12 @@ namespace DungeonLibrary
         private bool _isTwoHanded;
         private WeaponType _type;
 
+        public int MinDamage
+        {
+            get { return _minDamage; }
+            set { _minDamage = value > 0 && value <= _maxDamage ? value : 1; }
+        }
+
 
 
         //Properties 1 for each field 

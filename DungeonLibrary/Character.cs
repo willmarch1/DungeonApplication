@@ -1,6 +1,7 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    //Abstract denotes an incomplete class or method. This tells the program that we will not create any character objects directly. 
+    public  abstract class Character
     {
         //Fields
 
@@ -49,13 +50,13 @@
 
 
         //Ctors - 1 fully qualified, 1 default/unqualified
-        public Character(int block, int hitChance, string name, int maxLife, int life)
+        public Character(int block, int hitChance, string name, int maxLife)
         {
             Block = block;
             HitChance = hitChance;
             Name = name;
             MaxLife = maxLife;
-            Life = life;
+            Life = maxLife;
         }
         public Character() { }
 
@@ -77,17 +78,17 @@
                    $"Life: {Life}\n";
         }
 
-        public int CalculateBlock()
+        public virtual int CalculateBlock()
         {
             return Block;
         }
-        public int CalculateHitChance()
+        public virtual int CalculateHitChance()
         {
             return HitChance;
         }
-        public int CalculateDamage()
-        {
-            return 0;
-        }
+        public abstract int CalculateDamage(); //an abtract just says somewhere down the line, one of the child classes MUST implement this with some functionality. 
+        
+            
+        
     }
 }
