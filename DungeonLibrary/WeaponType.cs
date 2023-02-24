@@ -7,7 +7,8 @@ namespace DungeonLibrary
         Dagger,
         Claws,
         Ray_Gun,
-        Chainsaw
+        Chainsaw,
+        Sword
 
 
 
