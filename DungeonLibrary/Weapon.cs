@@ -48,11 +48,8 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
-        public int MinDamage
-        {
-            get { return _minDamage; }
-            set { _minDamage = value; }
-        }
+     
+        
         public int MaxDamage
         {
             get { return _maxDamage; }

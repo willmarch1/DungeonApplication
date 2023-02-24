@@ -42,7 +42,7 @@ namespace Dungeon
             p1.Name = "Charlie the Cat";
             p1.MaxLife = 25;
             p1.Life = 25;
-            p1.HitChance = 3;
+            p1.HitChance = 70;
             p1.Block = 5;
             p1.PlayerRace = Race.Animal;
             p1.EquippedWeapon = w1;
@@ -56,6 +56,12 @@ namespace Dungeon
             Console.WriteLine($"{p1.Name} Hit Chance: {p1.CalculateHitChance()}\n");
             Console.WriteLine($"{p1.Name} Damage: {p1.CalculateDamage()}\n");
 
+
+            Console.WriteLine(Monster.GetMonster());
+            Monster monster = Monster.GetMonster();
+
+            Console.WriteLine("\n\n ***** COMBAT *****\n\n");
+            Combat.DoBattle(p1, monster);
 
 
 
