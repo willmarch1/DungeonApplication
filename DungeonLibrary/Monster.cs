@@ -19,11 +19,24 @@ namespace DungeonLibrary
             set { _minDamage = value > 0 && value <= _maxDamage ? value : 1; }
         }
        
+
+
+
+
+
         //Properties
         public int MaxDamage { get; set; }
         public string Description { get; set; }
 
-       
+       public Monster() { }
+        
+
+
+
+
+
+
+
         //Constructors (CTORS)
         public Monster(string name, int block, int hitChance, int maxLife, string description, int maxDamage, int minDamage) :base (block, hitChance, name, maxLife)
         {
@@ -31,6 +44,10 @@ namespace DungeonLibrary
             MinDamage = minDamage;
             Description = description;
         }
+
+
+
+
         //Methods
         public override string ToString()
 

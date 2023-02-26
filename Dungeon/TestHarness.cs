@@ -40,10 +40,10 @@ namespace Dungeon
             Player p1= new Player();
 
             p1.Name = "Charlie the Cat";
-            p1.MaxLife = 25;
-            p1.Life = 25;
+            p1.MaxLife = 50;
+            p1.Life = 50;
             p1.HitChance = 70;
-            p1.Block = 5;
+            p1.Block = 15;
             p1.PlayerRace = Race.Animal;
             p1.EquippedWeapon = w1;
 
