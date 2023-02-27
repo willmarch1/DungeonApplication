@@ -21,21 +21,12 @@ namespace DungeonLibrary
        
 
 
-
-
-
         //Properties
         public int MaxDamage { get; set; }
         public string Description { get; set; }
 
        public Monster() { }
         
-
-
-
-
-
-
 
         //Constructors (CTORS)
         public Monster(string name, int block, int hitChance, int maxLife, string description, int maxDamage, int minDamage) :base (block, hitChance, name, maxLife)
@@ -64,10 +55,11 @@ namespace DungeonLibrary
         public static Monster GetMonster()
         {
             //Create a variety of monsters
-            Monster m1 = new("White Rabbit", block: 20, hitChance: 50, maxLife: 25, maxDamage: 8, minDamage: 2, description: "Thats not ordinary rabbit! Look at the bones!");
-            Monster m2 = new("Dracula", block: 8, hitChance: 70,  maxLife: 30, maxDamage: 8, minDamage: 1, description: "Father of all the undead.!");
-            Monster m3 = new("Mikey", block: 10, hitChance: 50, maxLife: 25, maxDamage: 4, minDamage: 1, description: "He is no longer a teenager, he is still a mutant turtle.");
-            Monster m4 = new("Smaug",block: 20, hitChance: 65, maxLife: 20, maxDamage: 15, minDamage: 1, description: "The last great dragon.");
+            Monster m1 = new("Rabid Rat", block: 7, hitChance: 35, maxLife: 10, maxDamage: 4, minDamage: 0, description: "Ground Zero for the start of rabies in Rats, this one seeks revenge for the turmoil Cats have caused Rats for centuries...");
+            Monster m2 = new("Vicious Vacuum", block: 8, hitChance: 40,  maxLife: 15, maxDamage: 5, minDamage: 1, description: "A sworn nemesis of the Cat, the Vicious Vacuum will stop at nothing to end the collection of shedded hair once and for all. The V.V. doesn't need to be plugged in to operate, but use caution if it is.");
+            Monster m3 = new("Laserating Laser Pointer", block: 15, hitChance: 45, maxLife: 25, maxDamage: 7, minDamage: 2, description: "A quick enemy. Makes for a good match for the Cat, but can the Cat finally catch it?");
+            Monster m4 = new("Growling Gracie",block: 15, hitChance: 40, maxLife: 30, maxDamage: 10, minDamage: 4, description: "A vicious, mouth-foaming, eyes bulging, barking, determined to kill 4.8 pound Chihuahua. Still, somehow cute. DO NOT UNDERESTIMATE!");
+            
 
 
 
@@ -75,7 +67,7 @@ namespace DungeonLibrary
             List<Monster> monsters = new()
             {
                 m1,
-                m2,m2,m2,m2,//gives m2 4x the chance of showing up then any other monster
+                m2, //m2,m2,m2,//gives m2 4x the chance of showing up then any other monster
                 m3,
                 m4,
             };

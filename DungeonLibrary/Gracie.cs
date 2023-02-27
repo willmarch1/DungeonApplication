@@ -20,8 +20,8 @@ namespace DungeonLibrary
             MaxLife = 30;
             MaxDamage = 10;
             Life = 30;
-            MinDamage = 6;
-            HitChance = 20;
+            MinDamage = 4;
+            HitChance = 40;
             Block = 15;
             Name = "Growling Gracie";
             Description = "A vicious, mouth-foaming, eyes bulging, barking, determined to kill 4.8 pound Chihuahua. Still, somehow cute. DO NOT UNDERESTIMATE!";
@@ -37,7 +37,7 @@ namespace DungeonLibrary
             int calculatedHitchance = HitChance;
             if (IsHungry)
             {
-                calculatedHitchance = 75;
+                calculatedHitchance = 55;
             }
             return calculatedHitchance;
         }

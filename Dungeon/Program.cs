@@ -7,20 +7,111 @@ namespace Dungeon
         static void Main(string[] args)
         {
             #region Title/Introduction
-            Console.Title = "DUNGEON OF DOOM!";
-            Console.WriteLine("Your journey begins...\n");
+            Console.Title = "Charlie's Challenges";
+            Console.WriteLine("\t\t\t\t====== Welcome to Charlie's Challenges ======" + @"
+                                                                        .--.
+                                                                        `.  \
+                                                                            \  \
+                                                                            .  \
+                                                                            :   .
+                                                                            |    .
+                                                                            |    :
+                                                                            |    |
+                            ..._  ___                                       |    |
+                            `."""".`''''""""--..___                              |    |
+                            ,-\  \             """"-...__         _____________/    |
+                            / ` "" '                    `""""""""""""""""                  .
+                            \                                                      L
+                            (>                                                      \
+                            /                                                         \
+                            \_    ___..---.                                            L
+                            `--'         '.                                           \
+                                            .                                           \_
+                                        _/`.                                           `.._
+                                        .'     -.                                             `.
+                                    /     __.-Y     /''''''-...___,...--------.._            |
+                                    /   _.""    |    /                ' .      \   '---..._    |
+                                    /   /      /    /                _,. '    ,/           |   |
+                                    \_,'     _.'   /              /''     _,-'            _|   |
+                                            '     /               `-----''               /     |
+                                            `...-'                                       `...-' ");
+            Console.Write("Press Enter to continue...");
+            Console.ReadKey();
+            Console.Clear();
+
+
+
+            Console.WriteLine("Charlie is a cat who has it all, but it wasn't always that way...Abandoned at an extremely young age, Charlie had to\nfight for his well-being." +
+                " He learned to take advantage of the smallest opportunites, navigate his way through the\nworld with eyes in the back of his head, and overcome " +
+                "the toughest circumstances. His struggles as a youth shaped him\ninto a Cat worth being.\n" +
+                "\nYears go by, and after overcoming adversity, Charlie now lives like royalty. He lives in a palace with cat treat\nfountains, cat nip gardens, " +
+                "and cat trees at every window with views he never thought he'd get to have.\nThat is... until tragedy strikes! Menacing forces have invaded Charlie's palace" +
+                " and threaten his peaceful way of life.\nCharlie fought too hard to overcome adversity to let these forces take him down.\n\n\t\t\tCan you complete Charlie's Challenges and lead" +
+                " him back to the life of peace?\n" + @"
+
+                                       
+                                        .__....._             _.....__,
+                                            ."": o :':         ;': o :"".
+                                            `. `-' .'.       .'. `-' .'
+                                            `---'             `---'
+
+                                    _...----...      ...   ...      ...----..._
+                                .-'__..-""""'----    `.  `""`  .'    ----'""""-..__`-.
+                                '.-'   _.--""""""'       `-._.-'       '""""""--._   `-.`
+                                '  .-""'                  :                  `""-.  `
+                                '   `.              _.'""'._              .'   `
+                                        `.       ,.-'""       ""'-.,       .'
+                                        `.                           .'
+                                            `-._                   _.-'
+                                                `""'--...___...--'""`");
+            Console.Write("Press Enter to continue...");
+            Console.ReadKey();
+            Console.Clear();
             #endregion
 
             #region Player Creation
             //TODO Variable to keep score
             int score = 0;
+            int monstersKilled = 0;
             // Weapon creation
             //Possible Expansion - Display a list of pre-created weapons and let them pick one, or pick one for them randomly
-            Weapon sword = new Weapon("Long Sword", 10, false, 1, 8,WeaponType.Sword);
+            Weapon claws = new("Charlie's Extendable Wolverine-like Claws", 10, true, 3, 8,WeaponType.Claws);
+            Weapon teeth = new("Charlie's custom made mouthguard with Knives as teeth", 15, false, 4, 10, WeaponType.Teeth_Knives);
+            Weapon whip = new("Charlie attaches an electric Whip to his tail", 20, false, 6, 10, WeaponType.Whip);
+            //Choose weapon loop
+            bool chosen = false;
+            do
+            {
+                Console.WriteLine("Charlie has prepared for this moment. He knew the enemies of his past would be jealous of his success.\n");
+                Console.Write("Choose a weapon for Charlie to wield: \n" +
+                               "[C] === Charlie's Extendable Wolverine-like Claws\n\n" +
+                               "[T] === Charlie's custom made mouthguard with Knives as teeth\n\n" +
+                               "[W] === Charlie attaches an electric Whip to his tail\n\n");
+                ConsoleKey userWeapon = Console.ReadKey(true).Key;
+                switch (userWeapon)
+                {
+                    case ConsoleKey.C:
+                        Console.WriteLine($"You chose {claws}");
+                        chosen = true;
+                        break;
+                    case ConsoleKey.T:
+                        Console.WriteLine($"You chose {teeth}");
+                        chosen = true;
+                        break;
+                    case ConsoleKey.W:
+                        Console.WriteLine($"You chose {whip}");
+                        chosen = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input, choose a valid weapon.");
+                        break;
+                }
+            } while (!chosen);
+            
             // Player object creation
             //Potential Expansion - allow them to enter their own name
             //Show them possible races and let them pick one
-            Player player = new(5, 70, "Leeroy Jenkins", 40, Race.Goblin, sword);
+            Player player = new Player(20, 70, "Charlie The Cat", 50, Race.Animal, claws);
             #endregion
 
             #region Main Game Loop
@@ -62,12 +153,13 @@ namespace Dungeon
                             {
                                 //Expansion - combat rewards. money, health, whatever
                                 Console.ForegroundColor= ConsoleColor.Green;
-                                Console.WriteLine($"\nYou killed {monster.Name}!");
+                                Console.WriteLine($"\nYou killed {monster.Name}! Charlie celebrates with cat nip which restores some health.");
                                 Console.ResetColor();
+                                player.Life += monster.Life / 4;
+                                score += monster.MaxLife - (player.MaxLife - player.Life);
+                                monstersKilled++;
                                 //flip the inner loop bool to true to get a new room and new monster
-                                reload = true;
-
-                                score++;
+                                reload = true;                            
                             }
                             break;
 
@@ -100,6 +192,7 @@ namespace Dungeon
                             //reload = true;
                             break;
                         default:
+                            Console.WriteLine("Incorrect input, please choose a valid option.");
                             break;
                     }
                     #endregion

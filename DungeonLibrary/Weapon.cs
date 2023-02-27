@@ -24,11 +24,7 @@ namespace DungeonLibrary
         private bool _isTwoHanded;
         private WeaponType _type;
 
-        public int MinDamage
-        {
-            get { return _minDamage; }
-            set { _minDamage = value > 0 && value <= _maxDamage ? value : 1; }
-        }
+     
 
 
 
@@ -60,8 +56,22 @@ namespace DungeonLibrary
             get { return _type; }
             set { _type = value; }
         }
-       
 
+        public int MinDamage
+        {
+            get { return _minDamage; }
+            set
+            {
+                if (value > 0 && value <= MaxDamage)
+                {
+                    _minDamage = value;
+                }
+                else
+                {
+                    _minDamage = 1;
+                }
+            }
+        }
 
 
         //Constructors (CTORS)
@@ -71,8 +81,8 @@ namespace DungeonLibrary
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
-            MinDamage = minDamage;
             MaxDamage = maxDamage;
+            MinDamage = minDamage;
             Type = type;
         }
         public Weapon() { }

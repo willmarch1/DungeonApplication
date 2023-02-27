@@ -8,7 +8,12 @@ namespace DungeonLibrary
         Claws,
         Ray_Gun,
         Chainsaw,
-        Sword
+        Sword,
+        Teeth_Knives,
+        Whip
+
+
+        
 
 
 
