@@ -10,7 +10,15 @@ namespace DungeonLibrary
     {
         public Monster RoomMonster { get; set; }
         public string RoomDescription { get; set; }
+
+
+        public override string ToString()
+        {
+            return $" in this room...";
+        }
+
+
     }
 
-
+    
 }

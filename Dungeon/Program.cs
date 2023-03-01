@@ -100,7 +100,13 @@ namespace Dungeon
                 {
                     case ConsoleKey.C:
                         Console.WriteLine($"\nYou chose {claws}");
-                        chosen = true;
+                        Console.WriteLine("Are you sure?");
+                        ConsoleKey userConfirm = Console.ReadKey(true).Key;
+                        if (userConfirm == ConsoleKey.Y)
+                        {
+                            chosen = true;
+                        }
+                        
                         player.EquippedWeapon = claws;
                         break;
                     case ConsoleKey.T:
@@ -183,7 +189,7 @@ namespace Dungeon
                 Console.WriteLine(GetRoom());
                 //Select a random monster to inhabit the room
                 Monster monster = Monster.GetMonster();
-                Console.WriteLine($"In this room is {monster.Name}!");
+                //Console.WriteLine($"In this room is {monster.Name}!");
                 #region Gameplay Menu Loop
                 bool reload = false;            
                 do
@@ -217,6 +223,10 @@ namespace Dungeon
                                 Console.WriteLine("Charlie celebrates with some cat nip which restores a small amount of health.");
                                 Console.ResetColor();
                                 player.Life = player.Life + (player.MaxLife / 10);
+                                if (player.Life > player.MaxLife)
+                                {
+                                    player.Life = player.MaxLife;
+                                }
                                 score ++;
                                 monstersKilled++;
                                 //flip the inner loop bool to true to get a new room and new monster
@@ -298,19 +308,44 @@ namespace Dungeon
             #endregion
         }//end Main()
 
-        private static string GetRoom()
+        private static Room GetRoom()
         {
-            string[] rooms =
+            Monster r1 = new("Rabid Rat", block: 7, hitChance: 90, maxLife: 20, maxDamage: 4, minDamage: 0, description: "Ground Zero for the start of rabies in Rats, this one seeks revenge for the turmoil Cats have\ncaused Rats for centuries...");
+            Monster r2 = new("Rabid Rat++", block: 8, hitChance: 90, maxLife: 24, maxDamage: 4, minDamage: 1, description: "Ground Zero for the start of rabies in Rats, this one seeks revenge for the turmoil Cats have\ncaused Rats for centuries...\n ***  ++ indicates buffed stats!  ***");
+
+            Monster v1 = new("Vicious Vacuum", block: 8, hitChance: 85, maxLife: 22, maxDamage: 5, minDamage: 1, description: "A sworn nemesis of the Cat, the Vicious Vacuum will stop at nothing to end the collection of shedded\nhair once and for all.");
+            Monster v2 = new("Vicious Vacuum++", block: 8, hitChance: 85, maxLife: 28, maxDamage: 6, minDamage: 6, description: "A sworn nemesis of the Cat, the Vicious Vacuum will stop at nothing to end the collection of shedded\nhair once and for all.\n ***  ++ indicates buffed stats!  ***");
+
+            Monster l1 = new("Laserating Laser Pointer", block: 15, hitChance: 70, maxLife: 25, maxDamage: 6, minDamage: 1, description: "A quick enemy. Makes for a good match for a Cat, but can Charlie finally catch it?");
+            Monster l2 = new("Laserating Laser Pointer", block: 15, hitChance: 75, maxLife: 25, maxDamage: 7, minDamage: 2, description: "A quick enemy. Makes for a good match for a Cat, but can Charlie finally catch it?\n ***  ++ indicates buffed stats!  ***");
+
+            Monster g1 = new("Growling Gracie", block: 15, hitChance: 75, maxLife: 30, maxDamage: 7, minDamage: 4, description: "A vicious, mouth-foaming, eyes bulging, barking, determined to kill 4.8 pound Chihuahua.\nStill, somehowcute. DO NOT UNDERESTIMATE!");
+            Monster g2 = new("Growling Gracie++", block: 20, hitChance: 85, maxLife: 35, maxDamage: 10, minDamage: 4, description: "A vicious, mouth-foaming, eyes bulging, barking, determined to kill 4.8 pound Chihuahua.\nStill, somehowcute. DO NOT UNDERESTIMATE!\n ***  ++ indicates buffed stats!  ***");
+
+            Monster t1 = new("Terrorizing Toddler", block: 25, hitChance: 80, maxLife: 24, maxDamage: 4, minDamage: 1, description: "A tiny human with no awareness or boundaries. This toddler has crazy eyes and a smelly diaper.");
+            Monster t2 = new("Terrorizing Toddler++", block: 25, hitChance: 85, maxLife: 30, maxDamage: 6, minDamage: 3, description: "A tiny human with no awareness or boundaries. This toddler has crazy eyes and a smelly diaper. \n ***  ++ indicates buffed stats!  ***");
+
+
+            List<Room> rooms = new List<Room>()
             {
-                 "1", "2", "3", "4",
+                new Room()
+                {
+                    RoomMonster = r1,
+                    RoomDescription = "sadfghfdsdf"
+                },
+                new Room()
+                {
+
+                },
             };
+           
 
             Random rand = new Random();
 
-            int index = rand.Next(rooms.Length);
+            int index = rand.Next(rooms.Count);
 
 
-            string room = rooms[index];
+            Room room = rooms[index];
 
             return room;
             //possible refactor
