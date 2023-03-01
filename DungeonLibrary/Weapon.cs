@@ -97,11 +97,11 @@ namespace DungeonLibrary
         public override string ToString()
         {
             return $"Weapon: {Name}\n" +
-                   $"Bonus Hit Chance: {BonusHitChance}\n" +
-                   $"Is Two Handed: {IsTwoHanded}\n" +
                    $"Min Dmg: {MinDamage}\n" +
                    $"Max Dmg: {MaxDamage}\n" +
-                   $"Weapon Type {Type}\n";
+                   $"Weapon Type {Type}\n" +
+                   $"Bonus Hit Chance: {BonusHitChance}\n" +
+                   $"Is Two Handed: {IsTwoHanded}\n";
                  
         }
     }

@@ -21,7 +21,7 @@ namespace DungeonLibrary
             MaxDamage = 4;
             Life = 10;
             MinDamage = 0;
-            HitChance = 35;
+            HitChance = 45;
             Block = 7;
             Name = "Rabid Rat";
             Description = "Ground Zero for the start of rabies in rats, this one seeks revenge for the turmoil" +
