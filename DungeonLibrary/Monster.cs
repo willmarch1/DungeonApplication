@@ -75,7 +75,7 @@ namespace DungeonLibrary
             //Add monsters to a collection
             List<Monster> monsters = new()
             {
-                r1,r1,r1,r1,
+                r1,r1,r1,r1,r1,r1,r1, r1, r1, r1,r1, r1, r1, r1, r1,    
                 r2,
                 v1,v1,v1,v1,
                 v2,
@@ -91,6 +91,6 @@ namespace DungeonLibrary
 
 
         }
-
+       
     }
 }

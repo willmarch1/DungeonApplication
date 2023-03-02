@@ -71,9 +71,9 @@
 
         public override string ToString()
         {
-            return $"Block: {Block}\n" +
+            return $"\nName: {Name}\n" +
+                   $"Block: {Block}\n" +
                    $"Hit Chance: {HitChance}\n" +
-                   $"Name: {Name}\n" +
                    $"Max Life: {MaxLife}\n" +
                    $"Life: {Life}\n";
         }

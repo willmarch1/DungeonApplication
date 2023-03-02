@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace DungeonLibrary
 
         public override string ToString()
         {
-            return $" in this room...";
+            return $"{RoomDescription}\n\nOpponent:{RoomMonster}";
         }
 
 
