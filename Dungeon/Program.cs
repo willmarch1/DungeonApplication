@@ -158,9 +158,11 @@ namespace Dungeon
             do
             {
                 //TODO Generate a random room
-                Console.WriteLine(GetRoom());
+                
+                Room room = GetRoom();
+                Console.WriteLine(room);
                 //Select a random monster to inhabit the room
-                Monster monster = Monster.GetMonster();
+                //Monster monster = Monster.GetMonster();
                 //Console.WriteLine($"In this room is {monster.Name}!");
                 #region Gameplay Menu Loop
                 bool reload = false;            
@@ -184,15 +186,15 @@ namespace Dungeon
                             // Combat
                             //Potential expansion : Weapon/race bonus attack
                             //if race == darkelf -> player.DoAttack(monster)
-                            Combat.DoBattle(player, monster);
+                            Combat.DoBattle(player, room.RoomMonster);
                             //check if the monster is dead
-                            if (monster.Life <= 0)
+                            if (room.RoomMonster.Life <= 0)
                             {
                                 //Expansion - combat rewards. money, health, whatever
                                 Thread.Sleep(400);
                                 Console.Clear();
                                 Console.ForegroundColor= ConsoleColor.Blue;
-                                Console.WriteLine($"\nCharlie dealt the final blow to {monster.Name}!");
+                                Console.WriteLine($"\nCharlie dealt the final blow to {room.RoomMonster.Name}!");
                                 Console.ResetColor();
                                 Console.ForegroundColor= ConsoleColor.Green;
                                 Console.WriteLine("He celebrates with a little cat nip, which restores a small amount of health.\n\n");
@@ -211,7 +213,7 @@ namespace Dungeon
                                 monstersKilled++;
                                 //flip the inner loop bool to true to get a new room and new monster
                                 reload = true;
-                                if (monstersKilled < 2)
+                                if (monstersKilled < 10)
                                 {
                                    
                                 }
@@ -242,8 +244,8 @@ namespace Dungeon
                         case ConsoleKey.R:
                             // Attack of opportunity
                             Console.WriteLine("Charlie doesn't feel ready for this fight yet...He hisses and runs away!");
-                            Console.WriteLine($"Offended by his hiss, {monster.Name} attacks as he runs.");
-                            Combat.DoAttack(monster, player);
+                            Console.WriteLine($"Offended by his hiss, {room.RoomMonster.Name} attacks as he runs.");
+                            Combat.DoAttack(room.RoomMonster, player);
                             Console.WriteLine();//formatting
                             reload = true;//new room, new monster
                             break;
@@ -258,7 +260,7 @@ namespace Dungeon
                         case ConsoleKey.M:
                             // Monster Info
                             Console.WriteLine("Monster Info ");
-                            Console.WriteLine(monster);
+                            Console.WriteLine(room.RoomMonster);
                             break;
 
                         case ConsoleKey.X:
