@@ -81,7 +81,7 @@ namespace Dungeon
             Weapon teeth = new("TEETH -> Charlie's custom made mouthguard with Knives as teeth", 15, false, 4, 10, WeaponType.Teeth_Knives);
             Weapon whip = new("WHIP -> Charlie attaches an electric Whip to his tail", 20, false, 6, 10, WeaponType.Whip);
             
-            Player player = new Player(20, 70, "Charlie The Cat", 50, Race.Animal, claws);
+            Player player = new Player(20, 70, "Charlie The Cat", 75, Race.Animal, claws);
 
             bool chosen = false;
             do
@@ -233,7 +233,33 @@ namespace Dungeon
 
 
 
-                                    
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    Console.Write("\n\n\n\n\n\n\n\n\n\t\t\t\t\tPress any key to continue...  ");
+                                    Console.ResetColor();
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    Console.WriteLine("\n\n\t\tCongratulations! Charlie has once again defied all odds and overcome his enemies!");
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("\n\n\t\t\t\t\t\tYOU WIN!\n\n");
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("\t\t\tYou defeated " + score + " of Charlie's enemies to keep his palace at peace.");
+                                    Console.ResetColor();
+                                    Console.Write("\n\n\n\nPress any key to continue... ");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Blue;
+                                    Console.WriteLine("\n\n\n\n\t\t\t\t\t\tCREDITS\n\n");
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                                    Console.WriteLine("\t\t\t\t\tA game by: Will March\n\n");
+                                    Console.ResetColor();
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    Console.WriteLine("\t\t\tSpecial thanks to: Centriq, Jeremy, Jeff, Spencer, and my classmates!\n\n\n\n\n\n");
+                                    Console.ResetColor();
+
                                     exit = true;
                                     reload = false;
                                     
@@ -277,9 +303,28 @@ namespace Dungeon
                     // check player life
                     if (player.Life <=0)
                     {
-                        Console.WriteLine("Defeated, Charlie sighs. He knows he must once again return to a life of uncertainty.\n" +
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\n\n\t\t{room.RoomMonster.Name} dealt the final blow to Charlie!");
+                        Console.ResetColor();
+                        Console.WriteLine("\nDefeated, Charlie sighs. He knows he must once again return to a life of uncertainty.\n" +
                             "He gives one last look at his overrun palace before heading off with no particular destination.\a");
-                        exit = true;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("\n\n\n\n\n\n\nDon't give up! Charlie only needs to clear the palace of a few more enemies to achieve victory...");
+                        Console.ResetColor();
+                        Console.Write("\nWould you like to respawn? Press Y to for Yes. Press any other key to give up. ");
+                        ConsoleKey userTryAgain = Console.ReadKey(true).Key;
+                        
+                        if (userTryAgain == ConsoleKey.Y)
+                        {
+                            reload= true;
+                            Console.Clear();
+                            player.Life = player.MaxLife;
+                        }
+                        else
+                        {
+                            exit = true;
+                        }
                     }
 
                 } while (!reload && !exit); //if either exit or reload, the inner loop will exit
@@ -290,32 +335,32 @@ namespace Dungeon
             } while (!exit); // if exit is true, the outer loop will exit as well
 
             //Show the score
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write("\n\n\n\n\n\n\n\n\n\t\t\t\t\tPress any key to continue...  ");
-            Console.ResetColor();
-            Console.ReadKey();
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("\n\n\t\tCongratulations! Charlie has once again defied all odds and overcome his enemies!");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\n\n\t\t\t\t\t\tYOU WIN!\n\n");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\t\t\tYou defeated " + score + " of Charlie's enemies to keep his palace at peace.");
-            Console.ResetColor();
-            Console.Write("\n\n\n\nPress any key to continue... ");
-            Console.ReadKey();
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\n\n\n\n\t\t\t\t\t\tCREDITS\n\n");
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine("\t\t\t\t\tA game made by: Will March\n\n");
-            Console.ResetColor(); 
-            Console.ForegroundColor= ConsoleColor.Green;
-            Console.WriteLine("\t\t\tSpecial thanks to: Centriq, Jeremy, Jeff, Spencer, and my classmates!\n\n\n\n\n\n");
-            Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //Console.Write("\n\n\n\n\n\n\n\n\n\t\t\t\t\tPress any key to continue...  ");
+            //Console.ResetColor();
+            //Console.ReadKey();
+            //Console.Clear();
+            //Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //Console.WriteLine("\n\n\t\tCongratulations! Charlie has once again defied all odds and overcome his enemies!");
+            //Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.Green;
+            //Console.WriteLine("\n\n\t\t\t\t\t\tYOU WIN!\n\n");
+            //Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.Cyan;
+            //Console.WriteLine("\t\t\tYou defeated " + score + " of Charlie's enemies to keep his palace at peace.");
+            //Console.ResetColor();
+            //Console.Write("\n\n\n\nPress any key to continue... ");
+            //Console.ReadKey();
+            //Console.Clear();
+            //Console.ForegroundColor = ConsoleColor.Blue;
+            //Console.WriteLine("\n\n\n\n\t\t\t\t\t\tCREDITS\n\n");
+            //Console.ResetColor();
+            //Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            //Console.WriteLine("\t\t\t\t\tA game made by: Will March\n\n");
+            //Console.ResetColor(); 
+            //Console.ForegroundColor= ConsoleColor.Green;
+            //Console.WriteLine("\t\t\tSpecial thanks to: Centriq, Jeremy, Jeff, Spencer, and my classmates!\n\n\n\n\n\n");
+            //Console.ResetColor();
             #endregion
         }//end Main()
 
