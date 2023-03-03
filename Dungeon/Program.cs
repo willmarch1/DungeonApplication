@@ -81,7 +81,7 @@ namespace Dungeon
             Weapon teeth = new("TEETH -> Charlie's custom made mouthguard with Knives as teeth", 15, false, 4, 10, WeaponType.Teeth_Knives);
             Weapon whip = new("WHIP -> Charlie attaches an electric Whip to his tail", 20, false, 6, 10, WeaponType.Whip);
             
-            Player player = new Player(20, 70, "Charlie The Cat", 75, Race.Animal, claws);
+            Player player = new Player(20, 70, "Charlie The Cat", 65, Race.Animal, claws);
 
             bool chosen = false;
             do
@@ -323,6 +323,8 @@ namespace Dungeon
                         }
                         else
                         {
+                            Console.Clear();
+                            Console.WriteLine("Charlie was counting on you... =(\n\n");
                             exit = true;
                         }
                     }
