@@ -161,9 +161,7 @@ namespace Dungeon
                 
                 Room room = GetRoom();
                 Console.WriteLine(room);
-                //Select a random monster to inhabit the room
-                //Monster monster = Monster.GetMonster();
-                //Console.WriteLine($"In this room is {monster.Name}!");
+
                 #region Gameplay Menu Loop
                 bool reload = false;            
                 do
@@ -183,14 +181,10 @@ namespace Dungeon
                     switch (userChoice)
                     {
                         case ConsoleKey.A:
-                            // Combat
-                            //Potential expansion : Weapon/race bonus attack
-                            //if race == darkelf -> player.DoAttack(monster)
+                            // Combat 
                             Combat.DoBattle(player, room.RoomMonster);
-                            //check if the monster is dead
                             if (room.RoomMonster.Life <= 0)
                             {
-                                //Expansion - combat rewards. money, health, whatever
                                 Thread.Sleep(400);
                                 Console.Clear();
                                 Console.ForegroundColor= ConsoleColor.Blue;
@@ -211,7 +205,6 @@ namespace Dungeon
                                 }
                                 score ++;
                                 monstersKilled++;
-                                //flip the inner loop bool to true to get a new room and new monster
                                 reload = true;
                                 if (monstersKilled < 10)
                                 {
@@ -259,7 +252,6 @@ namespace Dungeon
                                     Console.ForegroundColor = ConsoleColor.Green;
                                     Console.WriteLine("\t\t\tSpecial thanks to: Centriq, Jeremy, Jeff, Spencer, and my classmates!\n\n\n\n\n\n");
                                     Console.ResetColor();
-
                                     exit = true;
                                     reload = false;
                                     
@@ -272,8 +264,8 @@ namespace Dungeon
                             Console.WriteLine("Charlie doesn't feel ready for this fight yet...He hisses and runs away!");
                             Console.WriteLine($"Offended by his hiss, {room.RoomMonster.Name} attacks as he runs.");
                             Combat.DoAttack(room.RoomMonster, player);
-                            Console.WriteLine();//formatting
-                            reload = true;//new room, new monster
+                            Console.WriteLine();
+                            reload = true;
                             break;
 
                         case ConsoleKey.P:
@@ -336,33 +328,6 @@ namespace Dungeon
                 #endregion
             } while (!exit); // if exit is true, the outer loop will exit as well
 
-            //Show the score
-            //Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Console.Write("\n\n\n\n\n\n\n\n\n\t\t\t\t\tPress any key to continue...  ");
-            //Console.ResetColor();
-            //Console.ReadKey();
-            //Console.Clear();
-            //Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Console.WriteLine("\n\n\t\tCongratulations! Charlie has once again defied all odds and overcome his enemies!");
-            //Console.ResetColor();
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("\n\n\t\t\t\t\t\tYOU WIN!\n\n");
-            //Console.ResetColor();
-            //Console.ForegroundColor = ConsoleColor.Cyan;
-            //Console.WriteLine("\t\t\tYou defeated " + score + " of Charlie's enemies to keep his palace at peace.");
-            //Console.ResetColor();
-            //Console.Write("\n\n\n\nPress any key to continue... ");
-            //Console.ReadKey();
-            //Console.Clear();
-            //Console.ForegroundColor = ConsoleColor.Blue;
-            //Console.WriteLine("\n\n\n\n\t\t\t\t\t\tCREDITS\n\n");
-            //Console.ResetColor();
-            //Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            //Console.WriteLine("\t\t\t\t\tA game made by: Will March\n\n");
-            //Console.ResetColor(); 
-            //Console.ForegroundColor= ConsoleColor.Green;
-            //Console.WriteLine("\t\t\tSpecial thanks to: Centriq, Jeremy, Jeff, Spencer, and my classmates!\n\n\n\n\n\n");
-            //Console.ResetColor();
             #endregion
         }//end Main()
 
@@ -473,8 +438,7 @@ namespace Dungeon
             Room room = rooms[index];
 
             return room;
-            //possible refactor
-            //return rooms[new Random().Next(rooms.Length)];
+    
         }
 
     }//end class
